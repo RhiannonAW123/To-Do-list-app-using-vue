@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="./js/bundle.js"></script>
+</head>
+<body>
+  <div id="app">
+      <h1>To DO List</h1>
+    <ul>
+        <li v-for='task in todos'>{{ task.taskName }}   {{ task.isPriority }} </li>
+        <!-- <span v-if="taskName.isPriority">Priority!</span> -->
+    </ul>
+    <form v-on:submit.prevent='saveNewTask'>                    <!-- Listen for a 'submit' event and run function 'saveNewTask'-->             
+        <label for="new-task">Add new task</label>
+        <input type='text' id='new-task' v-model='newTask' required>     <!-- what is put in the input field is going to be the newItem-->
+        <input type='submit' value='Save new task'>
+
+        <label for="highPriority">High Priority</label>
+        <input type="radio" id='priority' name="priority" v-bind:value="true">
+        <br> 
+        <label for="lowPriority">Low Priority</label>
+        <input type="radio" id='priority' name="priority" v-bind:value="false">
+      </form>
+    </form>
+
+  </div>
+</body>
+</html>
